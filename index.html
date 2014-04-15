@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+
+  <!-- JS Libraries -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+
+  <!-- Our JS File -->
+  <script src="script.js"></script>
+</head>
+
+<body>
+
+  <!-- Landing Overlay -->
+  <div id="landing-wrapper" class="page">
+
+    <!-- Text link that appears when landing is hidden -->
+    <div class="show-landing">
+      Show Introduction
+      <img class="little-arrow" src="images/arrow-return.png">
+    </div>
+
+    <!-- Social Buttons -->
+    <div id="social-wrapper">
+      <div class="social-text">Share</div>
+      <div class="social-button facebook"></div>
+      <div class="social-button twitter"></div>
+      <div class="social-button google"></div>
+      <div class="social-button git"></div>
+    </div>
+
+    <!-- The "Hero" Image -->
+    <div id="hero-wrapper">
+      <img class="hero" src="images/hero.png">
+    </div>
+
+    <!-- Informational Section -->
+    <div id="info-wrapper">
+      <img class="see-button" src="images/see-for-yourself.png">
+      <br />
+      <div id="landing-info-left" class="col-left">
+        <h3 class="heading h1"></h3>
+        <p class="section s1"></p>
+        <h3 class="heading h2"></h3>
+        <p class="section s2"></p>
+      </div>
+      <div id="landing-info-right" class="col-right">
+        <h3 class="heading h3"></h3>
+        <p class="section s3"></p>
+        <h3 class="heading h4"></h3>
+        <p class="section s4"></p>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div>
+        Project Created by Jason Pollman, Kris Tyte, Kevin VanEmmerick, &amp; Charles Heiser | 2014
+      </div>
+    </div>
+
+  </div> <!--// End Landing Wrapper //-->
+
+  <!-- Visualization "Page" -->
+  <div id="vis-outer-wrapper">
+    <div id="vis-wrapper">
+      <div id="vis-header">
+        <img class="vis-header-img" src="images/hero-small.png" width="180px">
+        <h1>Survival of the Biggest</h1>
+        <h2>A Historical Overview of Obesity in the U.S.</h2>
+      </div>
+
+      <!-- Top "Main" Vis -->
+      <div id="vis-1-wrapper" class="vis-wrapper">
+        <h2>Links to Obesity</h2>
+        <p>Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        <div id="vis-1" class="vis">
+        </div>
+      </div>
+
+      <!-- Supplemental Vis -->
+      <div id="vis-2-wrapper" class="vis-wrapper">
+        <h2>Probable Causes</h2>
+        <p>Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        <div id="vis-2" class="vis">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
