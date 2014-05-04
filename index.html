@@ -2,6 +2,8 @@
 <html>
 
 <head>
+  <title>Survival of the Biggest: A Historical Overview of Obesity in the U.S.</title>
+
   <!-- Stylesheets -->
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
@@ -11,12 +13,13 @@
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
   <script src="http://d3js.org/d3.v3.min.js"></script>
 
-  <!-- Our JS File -->
-  <script src="script.js"></script>
+  <!-- Our JS Files -->
+  <script src="visualizations.js"></script>
+  <script src="actions.js"></script>
+  
 </head>
 
 <body>
-
   <!-- Landing Overlay -->
   <div id="landing-wrapper" class="page">
 
@@ -45,52 +48,123 @@
       <img class="see-button" src="images/see-for-yourself.png">
       <br />
       <div id="landing-info-left" class="col-left">
-        <h3 class="heading h1"></h3>
-        <p class="section s1"></p>
-        <h3 class="heading h2"></h3>
-        <p class="section s2"></p>
+        <h3 class="heading h1">About Obesity</h3>
+        <p class="section s1">Jason Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+        <h3 class="heading h2">Obesity is an Epidemic!</h3>
+        <p class="section s2">Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
       </div>
       <div id="landing-info-right" class="col-right">
-        <h3 class="heading h3"></h3>
-        <p class="section s3"></p>
-        <h3 class="heading h4"></h3>
-        <p class="section s4"></p>
-      </div>
-    </div>
+        <h3 class="heading h3">The Causes of Obesity</h3>
+        <p class="section s3">Nulla vitae elit libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec ullamcorper nulla non metus auctor fringilla.
 
-    <div id="footer">
-      <div>
-        Project Created by Jason Pollman, Kris Tyte, Kevin VanEmmerick, &amp; Charles Heiser | 2014
-      </div>
-    </div>
-
-  </div> <!--// End Landing Wrapper //-->
-
-  <!-- Visualization "Page" -->
-  <div id="vis-outer-wrapper">
-    <div id="vis-wrapper">
-      <div id="vis-header">
-        <img class="vis-header-img" src="images/hero-small.png" width="180px">
-        <h1>Survival of the Biggest</h1>
-        <h2>A Historical Overview of Obesity in the U.S.</h2>
-      </div>
-
-      <!-- Top "Main" Vis -->
-      <div id="vis-1-wrapper" class="vis-wrapper">
-        <h2>Links to Obesity</h2>
-        <p>Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-        <div id="vis-1" class="vis">
+          Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          <h3 class="heading h4">About Our Research</h3>
+          <p class="section s4">Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nulla vitae elit libero, a pharetra augue. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper.</p>
         </div>
       </div>
 
-      <!-- Supplemental Vis -->
-      <div id="vis-2-wrapper" class="vis-wrapper">
-        <h2>Probable Causes</h2>
-        <p>Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-        <div id="vis-2" class="vis">
+      <div id="footer">
+        <div>
+          Project Created by Jason Pollman, Kris Tyte, Kevin VanEmmerick, &amp; Charles Heiser | 2014
+        </div>
+      </div>
+
+    </div> <!--// End Landing Wrapper //-->
+
+    <!-- Visualization "Page" -->
+    <div id="vis-outer-wrapper">
+      
+      <!-- Headers -->
+      <div id="vis-wrapper">
+        <div id="vis-header">
+          <img class="vis-header-img" src="images/hero-small.png" width="180px">
+          <h1>Survival of the Biggest</h1>
+          <h2>A Historical Overview of Obesity in the U.S.</h2>
+        </div>
+
+        <!-- Pie Vis' -->
+        <div id="vis-1-wrapper" class="vis-wrapper">
+          <h2>Links to Obesity</h2>
+          <p>Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+          <div id="vis-1" class="vis">
+          </div>
+        </div>
+
+        <!-- Bar Chart Vis -->
+        <div id="vis-2-wrapper" class="vis-wrapper">
+          <h2>Probable Causes</h2>
+          <p>Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+          <ul id="vis-2-legend" class="legend-buttons">
+          </ul>
+          <div id="vis-2-legend-description"></div>
+          <div id="vis-2" class="vis">
+            <div id="sort-by-wrapper">
+              <div id="sort-by-title">Sort Data By:</div>
+              <select id="sort-by">
+                <option value="default">Year</option>
+              </select>
+              <select id="direction">
+                <option value="asc">Low to High</option>
+                <option value="desc">High to Low</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+      <filter  id="inset-shadow">
+        <!-- Shadow Offset -->
+        <feOffset
+          dx='0'
+          dy='3'
+        />
+       
+        <!-- Shadow Blur -->
+        <feGaussianBlur
+          stdDeviation='4'
+          result='offset-blur'
+        />
+       
+        <!-- Invert the drop shadow to create an inner shadow -->
+        <feComposite
+          operator='out'
+          in='SourceGraphic'
+          in2='offset-blur'
+          result='inverse'
+        />
+       
+        <!-- Color & Opacity -->
+        <feFlood
+          flood-color='black'
+          flood-opacity='0.75'
+          result='color'
+        />
+       
+        <!-- Clip color inside shadow -->
+        <feComposite
+          operator='in'
+          in='color'
+          in2='inverse'
+          result='shadow'
+        />
+       
+        <!-- Put shadow over original object -->
+        <feComposite
+          operator='over'
+          in='shadow'
+          in2='SourceGraphic'
+        />
+      </filter>
+      <filter id="drop" x="0" y="0" width="200%" height="200%">
+      <feOffset result="offOut" in="SourceGraphic" dx="2" dy="5"/>
+        <feColorMatrix result="matrixOut" in="offOut" type="matrix" values="0.4 0 0 0 0 0 0.4 0 0 0 0 0 0.4 0 0 0 0 0 1 0" />
+        <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="2" />
+        <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+      </filter>
+      <filter id="f1">
+        <feGaussianBlur stdDeviation="3"/>
+      </filter>
+    </svg>
+  </body>
 </html>
