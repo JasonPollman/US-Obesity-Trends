@@ -113,6 +113,13 @@ function init() {
     originalCategories = categories;
     originalCategories.splice(originalCategories.indexOf("year"), 1);
 
+    var string = '';
+    for(i in originalCategories) {
+      if(!isNaN(i)) (i != originalCategories.length - 1) ? string += originalCategories[i].capitalCase() + ", " : string += "and " + originalCategories[i].capitalCase() + ".";
+    }
+
+    $("#categories").html(string); // End $("#categories").html()
+
     // Append elements for filtering by category
     var i = 0;
     categories.forEach(function(e) {
@@ -496,12 +503,14 @@ function sortBy(category, direction) {
     .delay(delay)
     .attr("x", function(d) { return x0(d.x); });
 
-  transition.select(".x.axis")
-    .call(xAxis)
+  var trans = transition.select(".x.axis").call(xAxis)
+  // Fix x-axis label spacing
+  trans.selectAll("text")
+    .attr("x", -10)
+    .attr("y", 15)
+  trans
     .selectAll("g")
-    .delay(delay);
-
-  $(".x.axis .tick text").attr("x", -10).attr("y", 15);
+    .delay(delay)
 
 } // End of sortByCategory() function
 
@@ -525,9 +534,8 @@ function buildPie() {
   var i = 0;
   pieArray.forEach(function (e) {
 
-    if(i % parseInt(originalCategories.length) == 0) {
-      $("#vis-1").append("<br />");
-    }
+    if(i == parseInt((originalCategories.length / 2))) { $("#vis-1").append("<br />"); }
+
     var pie = d3.layout.pie().sort(null);
 
     var arc = d3.svg.arc()
@@ -694,7 +702,7 @@ function addModalPopup() {
         if(d2.category.toLowerCase() == "obesity" && d2.x == d.x) {
           attrContainer.append("div")
             .attr("class", "popup-item obesity")
-            .html("<span class=\"value\">" + format(d2.y) + "</span><span class=\"text\">Of U.S. Citizens Obese</span>")
+            .html("<span class=\"value-big\">" + format(d2.y) + "</span><br /><span class=\"text\">Of U.S. Citizens Obese</span>")
         }
 
         i++;
@@ -719,7 +727,5 @@ function addModalPopup() {
       d3.selectAll("#popup-menu").transition().duration(500).style('opacity', 0).remove();
     }
   }); // End of .on() method
-
-  // Close the popup menu when a user clicks the "X"
 
 } // End of addModalPopup() function

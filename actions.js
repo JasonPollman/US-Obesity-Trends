@@ -136,6 +136,16 @@ String.prototype.ucFirst = function() {
     $('.social-button.google').click(function() { openSocial('https://plus.google.com/share?url=') });
     $('.social-button.git').click(function() { openSocial("git") });
 
+    // To close the sources box
+    $('.close-sources').click(function() {
+      $('#data-sources-div').fadeOut("slow");
+    });
+
+    // To close the sources box
+    $('#data-sources').click(function() {
+      $('#data-sources-div').fadeToggle("slow");
+    });
+
 
     // Initialize the Visualization. 
     // I.E. Grab the data and instantiate the data variables, etc.

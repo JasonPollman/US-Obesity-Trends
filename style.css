@@ -12,6 +12,8 @@ body {
   padding: 0;
 
   overflow-y: scroll;
+
+  color: #101010;
 }
 text {
   font-size: 18px;
@@ -57,13 +59,40 @@ li {
   min-width: 34px;
   margin: 5px;
 }
-li * { display: inline-block; }
+li * { 
+  display: inline-block;
+}
+hr {
+  height: 0;
+  border: none;
+  border-top: 1px solid #c7c7c7;
+  border-bottom: 1px solid white;
+}
+
+/* Links */
+a,
+a:link,
+a:hover,
+a:visited,
+a:active {
+  color: #545454;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+a:hover {
+  color: black;
+}
 
 /* Page Footer */
-#footer {
+#footer{
   font-size: 11px;
   padding: 20px;
   text-align: right;
+}
+.source {
+  font-size: 10px;
+  float: right;
 }
 
 /** 
@@ -110,7 +139,7 @@ li * { display: inline-block; }
 /* Wrapper for the Information Section */
 #info-wrapper {
   margin: auto;
-  padding: 20px 0 80px 0;
+  padding: 20px 0 0 0;
   text-align: center;
   background-color: #f7f7f7;
 }
@@ -134,7 +163,7 @@ img.hero {
   min-width: 330px;
   height: auto;
 }
-img.see-button {
+.see-button {
   width: 45%;
   min-width: 330px;
   max-width: 843px;
@@ -286,9 +315,6 @@ img.vis-header-img {
   font-weight: 700;
   padding-right: 5px;
 }
-#vis-2-legend { 
-  float: left;
-}
 #vis-2 {
   background: rgb(255,255,255);
   background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(243,243,243,1) 50%, rgba(237,237,237,1) 51%, rgba(255,255,255,1) 100%);
@@ -422,12 +448,6 @@ rect {
   left: -25px;
   bottom: -16px;
 }
-#popup-menu hr {
-  height: 0;
-  border: none;
-  border-top: 1px solid #c7c7c7;
-  border-bottom: 1px solid white;
-}
 #popup-menu h3.popup-year {
   text-align: right;
   color: #545454;
@@ -444,7 +464,7 @@ rect {
 #popup-menu .popup-item.obesity {
   text-align: center;
 }
-#popup-menu .popup-item.obesity .value {
+#popup-menu .popup-item.obesity .value-big {
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: 700;
   font-size: 108px;
@@ -469,7 +489,8 @@ rect {
 #popup-menu .popup-item .category {
   font-weight: 600;
 }
-#popup-menu .close {
+#popup-menu .close,
+.close-sources {
   font-weight: 700;
   font-size: 12px;
   position: absolute;
@@ -480,6 +501,10 @@ rect {
   padding: 0 4px;
   cursor: pointer;
   color: #545454;
+}
+.close-sources {
+  left: auto;
+  right: 10px;
 }
 
 /* Axes and Pie Charts */
@@ -505,6 +530,43 @@ rect {
   fill: #545454;
 }
 
+/* Data Sources */
+#data-sources-div {
+  border: 1px solid #545454;
+  width: auto;
+  font-size: 10px;
+  text-align: left;
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  padding: 20px;
+
+  display: none;
+
+  background: rgb(255,255,255);
+  background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(243,243,243,1) 50%, rgba(237,237,237,1) 51%, rgba(255,255,255,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(50%,rgba(243,243,243,1)), color-stop(51%,rgba(237,237,237,1)), color-stop(100%,rgba(255,255,255,1)));
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%);
+  background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%);
+  background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%);
+  background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );
+
+  -webkit-box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow:    0px 8px 18px 0px rgba(0, 0, 0, 0.6);
+  box-shadow:         0px 8px 18px 0px rgba(0, 0, 0, 0.6);
+}
+#data-sources-div ul {
+  padding: 0;
+  margin-bottom: 0;
+}
+#data-sources-div li {
+  display: list-item;
+  margin: 0;
+  list-style: disc;
+  color: #545454;
+  margin-left: 15px;
+}
 /* Kill filters in FF, since they don't work! */
 @-moz-document url-prefix() { 
   #popup-menu {
