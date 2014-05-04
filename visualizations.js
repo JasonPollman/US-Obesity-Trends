@@ -727,7 +727,7 @@ function addModalPopup() {
 
       // Move the menu to the cursor location... but not exactly,
       // because right on top is somewhat annoying... so + 10px.
-      .style('left' , position[0] + 20 + "px")
+      .style('left' , position[0] + 10 + "px")
       .style('opacity', 0)
       .style('display', 'block');
 
@@ -780,12 +780,11 @@ function addModalPopup() {
 
     // Close the window if the "X" is clicked
     $("#popup-items .close").click(function() {
-      d3.selectAll("#popup-menu").transition().duration(500).style('opacity', 0).remove();
+      $("#popup-menu").stop().fadeOut("slow");
     });
 
-    if (!$('#popup-menu').is(':hover')) {
-      d3.selectAll("#popup-menu").transition().duration(500).style('opacity', 0).remove();
-    }
+    $("#popup-menu").stop().fadeOut("slow");
+    
   }); // End of .on() method
 
 } // End of addModalPopup() function
