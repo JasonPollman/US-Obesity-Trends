@@ -133,7 +133,6 @@ function init() {
     $("li.legend-item").mouseover(
       function() {
         var pos = $(this).position();
-        console.log($(this).attr("name"));
 
         $("#factor-descriptions .description").html(
           "<span class=\"description-title\">" + $(this).attr("name").replace(/-/g, " ").capitalCase() + "</span><hr>" + getDescription($(this).attr("name")));
