@@ -91,6 +91,7 @@ String.prototype.ucFirst = function() {
 
       // Show the visualizations below
       $("#vis-wrapper *").show();
+      window.scrollTo(0, 0);
 
       // Slide the landing page left
       $('#landing-wrapper').animate({ left: - (windowWidth - 29), }, 1500, 'easeOutExpo', function() {        
