@@ -259,7 +259,7 @@ function getDescription(factor) {
       break;
 
     case "cell phone use":
-      return "The percentage of the U.S. population that has a cell phone service plan.<br /><em>A control in our experiment</em>";
+      return "The percentage of the U.S. population that has a cell phone service plan.<br /><br /><em>A control in our experiment</em>";
       break;
 
     case "corn syrup":
