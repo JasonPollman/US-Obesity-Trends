@@ -129,6 +129,24 @@ function init() {
       i++;
     });
 
+    // Show/Hide the legend item description on hover.
+    $("li.legend-item").mouseover(
+      function() {
+        var pos = $(this).position();
+        console.log($(this).attr("name"));
+
+        $("#factor-descriptions .description").html(
+          "<span class=\"description-title\">" + $(this).attr("name").replace(/-/g, " ").capitalCase() + "</span><hr>" + getDescription($(this).attr("name")));
+        $("#factor-descriptions").css("position", "absolute").stop()
+          .css("left", pos.left + 100)
+          .css("top", pos.top - 20 - $("#factor-descriptions").hiddenHeight())
+          .fadeIn("slow");
+      }); // End $(".legend-item").hover()
+
+    $("#vis-2-legend").on("mouseout", function() {
+        $("#factor-descriptions").stop().fadeOut(500);
+      }); 
+
     // Append an SVG Defs Element for Gradient & Shadow Definitons
     var defs = d3.select("defs");
 
@@ -223,6 +241,49 @@ function init() {
   }); // End of d3.csv() function
 
 }  // End of init() function
+
+
+/**
+ * Returns the description for each legend item.
+ */
+function getDescription(factor) {
+
+  factor = factor.replace(/-/g, " ");
+
+  switch(factor) {
+    case "obesity":
+      return "The percentage of the U.S. population that is obese (has a BMI of 30 or greator).";
+      break;
+
+    case "manual labor":
+      return "The percentage of the U.S. work force that has a job considered \"manual.\" Examples: fishing, agriculture, construction, mining related, etc.";
+      break;
+
+    case "cell phone use":
+      return "The percentage of the U.S. population that has a cell phone service plan.<br /><em>A control in our experiment</em>";
+      break;
+
+    case "corn syrup":
+      return "The percentage of change of corn syrup levels in food content available to the population over the previous year.";
+      break;
+
+    case "fat per capita":
+      return "The percentage of change in the fat content levels in food available to the U.S. population per capita over the previous year.";
+      break;
+
+    case "unemployment":
+      return "The U.S. unemployment rate for the year.";
+      break;
+
+    case "kcal per capita":
+      return "The percentage of change in the availablilty of Kilo Calories per person in the U.S. over the previous year."
+
+    default:
+      return "No description available.";
+
+  } // End switch block
+
+} // End getDescription() function
 
 
 
@@ -349,7 +410,6 @@ function buildSortBySelectMenu() {
   });
 
 } // End buildSortBySelectMenu() function
-
 
 
 /**

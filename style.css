@@ -348,8 +348,8 @@ rect {
   filter: url(#drop);
 }
 .color-0 {
-  fill: #e31a1c;
-  background-color: #e31a1c;
+  fill: #002d71;
+  background-color: #002d71;
 }
 .color-1 {
   fill: #1f78b4;
@@ -368,12 +368,12 @@ rect {
   background-color: #6a3d9a;
 }
 .color-5 {
-  fill: #b2df8a;
-  background-color: #b2df8a;
+  fill: #e31a1c;
+  background-color: #e31a1c;
 }
 .color-6 {
-  fill: #002d71;
-  background-color: #002d71;
+  fill: #b2df8a;
+  background-color: #b2df8a;
 }
 .pie-gray {
   fill: #e1e1e1;
@@ -422,6 +422,7 @@ rect {
 
 
 /* Popup Menu Stylings */
+#factor-descriptions,
 #popup-menu {
   width: 200px;
   padding: 10px;
@@ -443,6 +444,12 @@ rect {
   box-shadow:         0px 5px 9px 0px rgba(0, 0, 0, 0.6);
 }
 #popup-menu:after {
+  content: url(images/popup-before.png);
+  position: absolute;
+  left: -25px;
+  bottom: -16px;
+}
+#factor-descriptions:after {
   content: url(images/popup-before.png);
   position: absolute;
   left: -25px;
@@ -566,6 +573,18 @@ rect {
   list-style: disc;
   color: #545454;
   margin-left: 15px;
+}
+#factor-descriptions {
+  min-height: 150px;
+  font-size: 12px;
+  display: none;
+}
+#factor-descriptions .description-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 14px;
+  color: #545454;
 }
 /* Kill filters in FF, since they don't work! */
 @-moz-document url-prefix() { 
