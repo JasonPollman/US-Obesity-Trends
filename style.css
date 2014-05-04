@@ -1,7 +1,6 @@
 /* Import Google Fonts */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,500,600,700|Open+Sans+Condensed:300,300italic,500,600,700);
 
-
 /* Elemental Style */
 body {
   font-family: 'Open Sans', sans-serif;
@@ -17,7 +16,6 @@ body {
 text {
   font-size: 18px;
 }
-
 
 /* Headers */
 h1 {
@@ -68,12 +66,10 @@ li * { display: inline-block; }
   text-align: right;
 }
 
-
 /** 
  * The following styles are for the "page" that is first displated when the user initially visits.
  * The "overlay"... that slides away when the user clicks the "See For Yourself" Button.
  */
-
 #landing-wrapper {
   position: absolute;
   top: 0;
@@ -149,6 +145,8 @@ img.see-button {
 img.vis-header-img {
  float: right;
 }
+
+/* Show Landing Button, etc. */
 .show-landing {
   position: fixed;
   left: -53px;
@@ -215,6 +213,7 @@ img.vis-header-img {
   background-position: 0 0;
 }
 
+/* Visualization Stylings */
 #vis-outer-wrapper {
   width: 100%;
   max-width: 100%;
@@ -483,6 +482,7 @@ rect {
   color: #545454;
 }
 
+/* Axes and Pie Charts */
 .percent-text {
   font-family: 'Open Sans Condensed', sans-serif;
   text-transform: uppercase;
@@ -490,16 +490,22 @@ rect {
   font-weight: 600;
   fill: #a3a3a3;
 }
-
 .x.axis .tick line {
   stroke-width: 1px;
   stroke: #545454;
 }
-
 #vis-2 svg {
   margin-top: 15px;
 }
+.no-bars {
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  fill: #545454;
+}
 
+/* Kill filters in FF, since they don't work! */
 @-moz-document url-prefix() { 
   #popup-menu {
       border: 1px solid #333333;
@@ -516,12 +522,4 @@ rect {
   .pie, .bars, rect, .pie-slices {
     filter: none !important;
   }
-}
-
-.no-bars {
-  text-transform: uppercase;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 24px;
-  font-weight: 600;
-  fill: #545454;
 }

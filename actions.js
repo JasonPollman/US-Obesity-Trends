@@ -20,12 +20,11 @@ function openSocial(url) {
   window.open(url + document.URL, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
 }
 
-
-
 Array.prototype.exists = function (e) {
   return (this.indexOf(e) <= -1) ? false : true;
 };
   
+
 /**
  * Get width of hidden (i.e. "display: none") elements.
  * jQuery Function
@@ -37,12 +36,14 @@ $.fn.hiddenWidth = function() {
   return width;
 };
 
+
 /**
  * Capitalize First Letter of String
  */
 String.prototype.ucFirst = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
 };
+
 
 // Anon. Immediately Run Function
 // ...Where the magic begins...
@@ -72,6 +73,8 @@ String.prototype.ucFirst = function() {
     // jQuery actions are triggered.
     $('.see-button').click(function() {
 
+      // One every click flop visShowing so we know if the
+      // vis is showing or not.
       visShowing = !visShowing;
 
       // Show the visualizations below
@@ -92,6 +95,9 @@ String.prototype.ucFirst = function() {
       }); // End slide landing page left
 
       // ----------------------------------- INITIALIZE D3 STUFF ------------------------------------- //
+      
+      // Only append the bars and pies if this is the first run,
+      // as the user can click "Show Introduction"/"See for Yourself" many times.
       if(firstRunRan == false) firstRun();
       firstRunRan = true;
 
@@ -131,6 +137,8 @@ String.prototype.ucFirst = function() {
     $('.social-button.git').click(function() { openSocial("git") });
 
 
+    // Initialize the Visualization. 
+    // I.E. Grab the data and instantiate the data variables, etc.
     init();
 
   }); // End Document.ready()
