@@ -588,9 +588,12 @@ rect {
 }
 /* Kill filters in FF, since they don't work! */
 @-moz-document url-prefix() { 
-  #popup-menu {
+  #popup-menu, #factor-descriptions {
       border: 1px solid #333333;
       outline: none;
+  }
+  #factor-descriptions:after {
+      bottom: -15px;
   }
   .legend-indicator {
     border: 1px solid white;
