@@ -853,12 +853,10 @@ function userValues() {
       .css("font-style", "oblique");
   }
 
-  if(valuesArr.length != 25) {
-    var pad = 25 - valuesArr.length;
-    for(var i = 0; i <= pad; i++) {
-      valuesArr.push(0);
-    }
-  } // End if block
+  var pad = 27 - valuesArr.length;
+  for(var i = 0; i < pad; i++) {
+    valuesArr.push(0);
+  }
 
   var id = data.length;
   for(var i = 0; i <= 25; i++) {
