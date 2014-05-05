@@ -110,7 +110,7 @@ function init() {
     categories.forEach(function(e) { e = e.trim(); });
 
     // For "non-filtering" purposes...
-    originalCategories = categories;
+    originalCategories = categories.slice(0); // Copy the array
     originalCategories.splice(originalCategories.indexOf("year"), 1);
 
     var string = '';
@@ -144,7 +144,11 @@ function init() {
 
     $("#vis-2-legend").on("mouseout", function() {
         $("#factor-descriptions").stop().fadeOut(500);
-      }); 
+      });
+
+    $("#user-values-submit").click(function() {
+      userValues();
+    });
 
     // Append an SVG Defs Element for Gradient & Shadow Definitons
     var defs = d3.select("defs");
@@ -236,6 +240,12 @@ function init() {
     $("#sort-by, #direction").change(function() {
       sortBy($("#sort-by").val(), $("#direction").val());
     }); // End of sort filter
+
+    $("#user-values").keypress(function() {
+      var numValues = $(this).val().split(",").length;
+      var html = "You've entered " + numValues + " data points.";
+      $("#counter").text(html);
+    });
 
   }); // End of d3.csv() function
 
@@ -787,3 +797,143 @@ function addModalPopup() {
   }); // End of .on() method
 
 } // End of addModalPopup() function
+
+
+function userValues() {
+
+  if($("#user-values").val() == "" || $("#user-values").val() == null) {
+    return false;
+  }
+
+  // Remove any previously submitted user values.
+  for(var i = data.length - 1; i >= 0; i--) {
+    if(data[i].category == "user") {
+       data.splice(i, 1);
+    }
+  }
+
+  // Clean up for refresh. :)
+  $("#user-title-error").html("");
+  $("#user-values-error").html("");
+
+  var values = $("#user-values").val();
+  var valuesArr = values.split(",");
+  var userCategory = "user";
+
+  var badInput = false;
+
+  valuesArr.forEach(function(e) {
+    if(isNaN(e.trim()) || e == " ") {
+      $("#user-values-error").html("<br />Please enter numeric values only. Check your formatting and remove any trailing commas.")
+        .css("color", "red")
+        .css("font-weight", "bold")
+        .css("font-style", "oblique");
+
+      badInput = true;
+
+    } // End if block
+
+    if(parseFloat(e.trim()) > 1 || parseFloat(e.trim()) < 0) {
+      $("#user-values-error").html("<br />The values you've entered are greator than 1. Please enter percentages (values <= 1).")
+        .css("color", "red")
+        .css("font-weight", "bold")
+        .css("font-style", "oblique");
+
+    } // End if block
+
+  }); // End valuesArr.forEach()
+
+  if(badInput == true) {
+    return false;
+  }
+  else {
+    $("#user-values-message").html("<br />Your values have been added to the visualizations as the series 'User'.")
+      .css("color", "green")
+      .css("font-weight", "bold")
+      .css("font-style", "oblique");
+  }
+
+  if(valuesArr.length != 25) {
+    var pad = 25 - valuesArr.length;
+    for(var i = 0; i <= pad; i++) {
+      valuesArr.push(0);
+    }
+  } // End if block
+
+  var id = data.length;
+  for(var i = 0; i <= 25; i++) {
+    data.push({ x: 1985 + i, y: parseFloat(valuesArr[i]), category: userCategory, id: id });
+    id++;
+  }
+
+  var oldCategories = categories.slice(0);
+
+  originalCategories.indexOf("user") <= -1 ? originalCategories.push(userCategory) : null;
+  originalCategories.forEach(function(e) {
+    if(categories.indexOf(e) <= -1) {
+      categories.push(e);
+    }
+  });
+
+  if(categories.indexOf("year") > -1) categories.splice(categories.indexOf("year"), 1);
+  categories.sort();
+
+  d3.select("#vis-2 svg").remove();
+  $("#vis-2-legend *").remove();
+
+  var i = 0;
+  categories.forEach(function(e) {
+    if($("#vis-2-legend-item-" + i).length === 0 && e != "year") {
+      $("#vis-2-legend").append("<li name=" + e.replace(/\W+/g, '-') + " class=\"legend-item " + e.replace(/\W+/g, '-') + "\"><div class=\"legend-indicator"  + " color-" + (i % originalCategories.length) + "\">On</div>" + e.capitalCase() + "</li>");
+    }
+    i++;
+  });
+
+  // Show/Hide the legend item description on hover.
+  $("li.legend-item").mouseover(
+    function() {
+      var pos = $(this).position();
+
+      $("#factor-descriptions .description").html(
+        "<span class=\"description-title\">" + $(this).attr("name").replace(/-/g, " ").capitalCase() + "</span><hr>" + getDescription($(this).attr("name")));
+      $("#factor-descriptions").css("position", "absolute").stop()
+        .css("left", pos.left + 100)
+        .css("top", pos.top - 20 - $("#factor-descriptions").hiddenHeight())
+        .fadeIn("slow");
+    }); // End $(".legend-item").hover()
+
+  $("#vis-2-legend").on("mouseout", function() {
+      $("#factor-descriptions").stop().fadeOut(500);
+    });
+
+  // Filter by category.
+  // When a user clicks the "ON" and "OFF" category buttons...
+  $(".legend-item").click(function() {
+
+    // Grab the category name from the HTML name attribute:
+    var name = $(this).attr("name").replace(/-/g, " ");
+
+    // If it's in the categories array, remove it and therefore turn the
+    // category "off". Otherwise add it and turn it "on".
+    if(categories.exists(name)) {
+      categories.splice(categories.indexOf(name), 1);
+      // Update the ".legend-indicator" DIV to say the correct text.
+      $(this).find(".legend-indicator").html("Off");
+    }
+    else {
+      categories.push(name);
+      // Update the ".legend-indicator" DIV to say the correct text.
+      $(this).find(".legend-indicator").html("On");
+    }
+
+    // Now update the visualization to reflect the change in category selections:
+    updateVis();
+
+  }); // End of $(".legend-item").click() function
+
+
+  firstRun();
+  updateVis();
+  
+
+} // End of userValues() function
